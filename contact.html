@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        form {
+            max-width: 500px;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Details</h1>
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <!-- Web3Forms Access Key -->
+        <input type="hidden" name="access_key" value="c10f5215-ad5e-4955-812f-72aa891fcb26">
+
+        <!-- LocalStorage Data -->
+        <p><b>Selected Place:</b> <span id="selectedPlace"></span></p>
+        <p><b>Selected Vehicle:</b> <span id="selectedVehicle"></span></p>
+        <p><b>Pickup Location:</b> <span id="selectedPickup"></span></p>
+        <p><b>From Date:</b> <span id="displayFromDate"></span></p>
+        <p><b>To Date:</b> <span id="displayToDate"></span></p>
+
+        <!-- Hidden Inputs for LocalStorage Values -->
+        <input type="hidden" name="selected_place" id="placeInput">
+        <input type="hidden" name="selected_vehicle" id="vehicleInput">
+        <input type="hidden" name="pickup_location" id="pickupInput">
+        <input type="hidden" name="from_date" id="fromDateInput">
+        <input type="hidden" name="to_date" id="toDateInput">
+
+        <!-- User Data -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" required>
+
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" placeholder="Enter your message" rows="5"></textarea>
+
+        <!-- Honeypot Spam Protection -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+        <button type="submit">Submit Form</button>
+    </form>
+
+    <script>
+        // Retrieve data from localStorage
+        const selectedPlace = localStorage.getItem('selectedPlace') || 'None';
+        const selectedVehicle = localStorage.getItem('selectedVehicle') || 'None';
+        const pickupLocation = localStorage.getItem('pickupLocation') || 'None';
+        const fromDate = localStorage.getItem('fromDate') || 'None';
+        const toDate = localStorage.getItem('toDate') || 'None';
+
+        // Display data on the page
+        document.getElementById('selectedPlace').innerText = selectedPlace;
+        document.getElementById('selectedVehicle').innerText = selectedVehicle;
+        document.getElementById('selectedPickup').innerText = pickupLocation;
+        document.getElementById('displayFromDate').innerText = fromDate;
+        document.getElementById('displayToDate').innerText = toDate;
+
+        // Populate hidden input fields for submission
+        document.getElementById('placeInput').value = selectedPlace;
+        document.getElementById('vehicleInput').value = selectedVehicle;
+        document.getElementById('pickupInput').value = pickupLocation;
+        document.getElementById('fromDateInput').value = fromDate;
+        document.getElementById('toDateInput').value = toDate;
+    </script>
+</body>
+</html>

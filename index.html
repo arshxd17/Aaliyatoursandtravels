@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaliya Tours and Travels</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f3f3f3;
+            background-image: url('images/kodaikanal.jpg'); /* Add your background image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Navbar styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+            color: white;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        nav .brand {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        /* Left Content (Home Section) */
+        .left-content {
+            padding: 80px 40px;
+            color: white;
+            text-align: center;
+            height: calc(100vh - 60px); /* Full height minus navbar */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5); /* Transparent dark background */
+        }
+
+        .left-content h1 {
+            font-size: 60px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .left-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-book {
+            background-color: #ffd700;
+            color: black;
+            padding: 15px 30px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-book:hover {
+            background-color: #f0c400;
+            transform: scale(1.1);
+        }
+
+        /* Slider Box */
+        .slider-box {
+            width: 80%;
+            max-width: 900px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider-box img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .slider-buttons {
+            margin-top: 20px;
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-buttons button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 30px;
+            color: #ffd700;
+            transition: color 0.3s;
+            padding: 15px;
+        }
+
+        .slider-buttons button:hover {
+            color: #ffc400;
+        }
+
+        /* Happy Customers section */
+        .happy-customers {
+            background: linear-gradient(to right, #8e9eab, #eef2f3);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .happy-customers h2 {
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .customer-images {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .customer-images img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 4px solid #ffd700;
+            transition: transform 0.3s ease;
+        }
+
+        .customer-images img:hover {
+            transform: scale(1.15);
+        }
+
+        /* Owner Box */
+        .owner-box {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 50px auto;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .owner-box img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 4px solid #ffd700;
+        }
+
+        .owner-box h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .owner-box p {
+            font-size: 16px;
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .owner-box a {
+            color: #4e54c8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .owner-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Copyright Section */
+        .copyright {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="brand">Aaliya Tours</div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="places.html">Places</a>
+            <a href="vehicles.html">Vehicles</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="places.html" class="btn-book">Start Booking</a> <!-- Button at the top -->
+    </nav>
+
+    <!-- Main Content -->
+    <div class="left-content">
+        <h1>Welcome to Aaliya Tours and Travels</h1>
+        <p>Discover amazing destinations with our tailored travel packages. Enjoy luxury tours, comfortable travel arrangements, and unforgettable experiences.</p>
+        <button class="btn-book" onclick="openSlider()">View Gallery</button>
+    </div>
+
+    <!-- Owner Box -->
+    <div class="owner-box">
+        <img src="images/owner.jpg" alt="Owner Picture">
+        <h3>Sithik</h3>
+        <p>Phone: +91 8526630786</p>
+        <p>Instagram: <a href="https://www.instagram.com/aaliya_tour_travels?igsh=dTEzNDdnMmJmZWZ2">@aaliyatoursandtravels</a></p>
+    </div>
+
+    <!-- Slider Box -->
+    <div class="slider-box" id="sliderBox" style="display: none;">
+        <div class="slider-close" onclick="closeSlider()" style="position: absolute; top: 10px; right: 20px; font-size: 30px; color: #000; cursor: pointer;">&times;</div>
+        <img src="images/image1.jpg" id="sliderImage" alt="Slide Image">
+        <div class="slider-buttons">
+            <button id="prev">&#10094;</button>
+            <button id="next">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- Happy Customers Section -->
+    <div class="happy-customers">
+        <h2>Our Happy Customers</h2>
+        <div class="customer-images">
+            <img src="images/customer1.jpg" alt="Happy Customer 1">
+            <img src="images/customer2.jpg" alt="Happy Customer 2">
+            <img src="images/customer3.jpg" alt="Happy Customer 3">
+            <img src="images/customer4.jpg" alt="Happy Customer 4">
+            <img src="images/customer5.jpg" alt="Happy Customer 5">
+        </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <div class="copyright">
+        <p>&copy; 2025 Aaliya Tours and Travels | Developed by Arshad Khan Sithik</p>
+    </div>
+
+    <script>
+        const sliderBox = document.getElementById('sliderBox');
+        const sliderImage = document.getElementById('sliderImage');
+        const images = ['images/image1.jpg', 'images/image2.jpg', 'images/image3.jpg', 'images/image4.jpg', 'images/image5.jpg'];
+        let currentIndex = 0;
+
+        function openSlider() {
+            sliderBox.style.display = 'block';
+            sliderImage.src = images[currentIndex];
+        }
+
+        function closeSlider() {
+            sliderBox.style.display = 'none';
+        }
+
+        document.getElementById('prev').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            sliderImage.src = images[currentIndex];
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            sliderImage.src = images[currentIndex];
+        });
+    </script>
+
+</body>
+</html>

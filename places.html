@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Place</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .places-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px;
+        }
+
+        .place-box {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 300px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .place-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .place-box img {
+            width: 100%;
+            height: 200px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .place-box h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .place-box p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .pickup-select {
+            margin: 20px 0;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+    <script>
+        function selectPlace(place) {
+            const pickup = document.getElementById('pickup-location').value;
+            if (!pickup) {
+                alert('Please select a pickup location.');
+                return;
+            }
+            localStorage.setItem('selectedPlace', place); // Store the selected place
+            localStorage.setItem('pickupLocation', pickup); // Store the selected pickup location
+            window.location.href = 'vehicles.html'; // Redirect to the Vehicles page
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Select Your Destination</h1>
+    </header>
+
+    <div class="container">
+        <label for="pickup-location">Choose your pickup location:</label>
+        <select id="pickup-location" class="pickup-select">
+            <option value="">-- Select Pickup Location --</option>
+            <option value="Dindigul">Dindigul</option>
+            <option value="Madurai">Madurai</option>
+            <option value="Trichy">Trichy</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+
+    <div class="places-container">
+        <!-- Place: Kodaikanal -->
+        <div class="place-box" onclick="selectPlace('Kodaikanal')">
+            <img src="images/Kodaikanal.jpg" alt="Kodaikanal">
+            <h3>Kodaikanal</h3>
+            <p>Known as the "Princess of Hill Stations," Kodaikanal offers serene lakes and misty mountains.</p>
+        </div>
+
+        <!-- Place: Munnar -->
+        <div class="place-box" onclick="selectPlace('Munnar')">
+            <img src="images/Munnar.jpg" alt="Munnar">
+            <h3>Munnar</h3>
+            <p>Explore the lush tea plantations and breathtaking valleys of Munnar.</p>
+        </div>
+
+        <!-- Place: Yercaud -->
+        <div class="place-box" onclick="selectPlace('Yercaud')">
+            <img src="images/yercaud.jpg" alt="Yercaud">
+            <h3>Yercaud</h3>
+            <p>Experience the tranquility of the "Poor Man's Ooty" with beautiful vistas and lakes.</p>
+        </div>
+
+        <!-- Place: Courtallam -->
+        <div class="place-box" onclick="selectPlace('Coutrallam')">
+            <img src="images/coutrallam.jpg" alt="Coutrallam">
+            <h3>Coutrallam</h3>
+            <p>Famous for its therapeutic waterfalls, Coutrallam is a must-visit.</p>
+        </div>
+
+        <!-- Place: Kanyakumari -->
+        <div class="place-box" onclick="selectPlace('Kanyakumari')">
+            <img src="images/Kanyakumari.jpg" alt="Kanyakumari">
+            <h3>Kanyakumari</h3>
+            <p>Witness the confluence of three oceans at the southernmost tip of India.</p>
+        </div>
+
+        <!-- Place: Kerala -->
+        <div class="place-box" onclick="selectPlace('Kerala')">
+            <img src="images/kerala.jpg" alt="Kerala">
+            <h3>Kerala</h3>
+            <p>Known as "God's Own Country," Kerala offers backwaters, beaches, and more.</p>
+        </div>
+
+        <!-- Place: Rameshwaram -->
+        <div class="place-box" onclick="selectPlace('Rameshwaram')">
+            <img src="images/Rameshwaram.jpg" alt="Rameshwaram">
+            <h3>Rameshwaram</h3>
+            <p>A sacred pilgrimage site with stunning beaches and historical significance.</p>
+        </div>
+    </div>
+
+</body>
+</html>
